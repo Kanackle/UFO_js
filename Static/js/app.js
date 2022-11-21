@@ -2,7 +2,7 @@
 const tableData = data;
 
 //Make a HTML table using d3
-vat tbody = d3.select("tbody");
+var tbody = d3.select("tbody");
 
 function buildTable(data){
 	//Clear any existing data
@@ -26,13 +26,13 @@ function buildTable(data){
 function handleClick(){
 	//Look for the datetime id in HTML tags
 	//Grab the data values and hold it in the "date" variable
-	let date = d3.select("#datatime").property("value");
+	let date = d3.select("#datetime").property("value");
 	let filterData = tableData;
 
 	//Check to see if a date was entered
 	//Filter the data using the date
 	if(date){
-		filteredData = filteredData.filter(row => row.datetime === date);
+		filteredData = filterData.filter(row => row.datetime === date);
 	};
 
 	//Rebuild the table using filtered data
