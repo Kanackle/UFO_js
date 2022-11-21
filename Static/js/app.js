@@ -20,6 +20,25 @@ function buildTable(data){
 			let cell = row.append("td");
 			cell.text(val);
 		});
-	});
-	
+	});	
 }
+
+function handleClick(){
+	//Look for the datetime id in HTML tags
+	//Grab the data values and hold it in the "date" variable
+	let date = d3.select("#datatime").property("value");
+	let filterData = tableData;
+
+	//Check to see if a date was entered
+	//Filter the data using the date
+	if(date){
+		filteredData = filteredData.filter(row => row.datetime === date);
+	};
+
+	//Rebuild the table using filtered data
+	buildTable(filteredData);
+};
+//Attach an event to listen for the form button
+d3.selectAll('#filter-btn').on("click", handleClick);
+//Build the table when the page loads
+buildTable(tableData);
