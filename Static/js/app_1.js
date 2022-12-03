@@ -34,7 +34,7 @@ function handleClick(){
 	if(date){
 		filteredData = filterData.filter(row => row.datetime === date);
 	};
-
+	
 	//Rebuild the table using filtered data
 	buildTable(filteredData);
 };
